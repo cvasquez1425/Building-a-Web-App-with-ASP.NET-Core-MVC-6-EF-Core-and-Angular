@@ -1,0 +1,104 @@
+﻿/* site.css */
+/*body {
+    font-family: sans-serif;
+    font-size: 14px;
+    /* we have to actually tell the body that we want it and all of its other elements  by default to have a new margin of zero. it removes all the individual margins on the page. 
+    margin: 0;
+}
+
+
+label {
+    font-weight: bold;
+    display: block; /*how the element is displayed on a web page. by default a label is something called inline. 
+                    so we want them to be separated in different lines. display block is something that divs are by default. 
+}
+    
+input[type=text], input[type=password], textarea {
+    width: 150px;
+}*/
+
+
+/*input[type=submit]{
+    width:auto;
+}*/
+
+/*
+#main {
+    background-color: #eee; /* # and three digits for Red Blue and Green   
+                                    this also can be six digits  where each TWO digits is a hexadecimal value of Red, Blue, and Green
+    padding: 4px;
+    margin: 0;
+}
+
+#footer {
+    background-color: #222;
+    color: #eee;
+    padding: 8px 5px;
+    /* Because the left, top and right don't have property  set for it. 
+    position: fixed;
+    bottom: 0; /* start the footer at the bottom of the page, 
+    width: 100%;
+}
+*/ 
+
+/* an image inside a sidebar selector, see space in between. two selectors walk down the hierarquy*/
+/*#sidebar img {
+    max-width:50px;
+}*/
+
+.headshot {
+    max-width: 50px;
+    border: 1px solid #222;
+    padding: 3px;
+}
+
+.menu {
+    font-size: 12px;
+}
+
+    /* Again because this doesn't have a comma, this is saying all the list items INSIDE of the menu*/
+    .menu li {
+        list-style-type: none;        
+    }
+        /*the trick here is NOT to include the space, this is saying only match to the li who have the class active. not who have an object inside of them that is active.*/
+        .menu li.active {
+            font-weight: bold;
+        }
+
+        .menu li a{
+            color: #eee;
+        }
+/* we want to display the sidebar itself on the left-hand side*/
+#sidebar {
+    background: #2a2c36;
+    color: #eee;
+    position: fixed; /* tells it we want to be in a fixed position with the left, right, the top, and the bottom. In fact, this is married to left:0 left side of the page*/
+    height: 100%; /* it is going to take the entire vertical space of the page  up to a width of 250px to the left-hand side*/
+    width: 250px;
+    overflow: hidden; /* overflow hidden means that ANYTHING that gets out of the section of the sidebar will be CLIPPED instead of just displaying over. */
+    left: 0;
+    margin: 0;
+    transition: left ease .25s;   /* CSS Animation*/
+}
+
+    #sidebar.hide-sidebar{
+        left: -250px;
+        transition: left ease .25s;  /* what property I want to transition (i.e., left property) */
+    }
+
+#wrapper {
+    margin: 0 0 0 250px; /* to be the same size as the width of the sidebar. Effectively, pushing us over from the left-hand side.             
+                          Now, I could have said fixed and said left:0 as well. */
+    transition: margin-left ease .25s;
+}
+
+    #wrapper.hide-sidebar{
+        margin-left: 0;
+        transition: margin-left ease .25s;
+    }
+
+    /* this height and width are specific in the requirement of Embedded map work, and since gmap is wrapper for Google Maps. Here is where we style that map */
+#map {
+    width: 100%;
+    height: 600px;
+}

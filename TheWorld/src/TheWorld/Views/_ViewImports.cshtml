@@ -1,0 +1,9 @@
+﻿@*Services available everywhere by adding this new type of view. Add services here.
+this allows us to add things that are going to be imported into every view we have, so that we don't have to duplicate those sort of imports over and over for things that are going to be common.*@
+
+@*this will inject all the Tag Helpers into each view that we actually need.*@
+@addTagHelper "*, Microsoft.AspNetCore.Mvc.TagHelpers"  
+
+
+if you want to add a namespace avaialble to every single view you can say 
+@*@using TheWorld.Controllers.Models*@ 

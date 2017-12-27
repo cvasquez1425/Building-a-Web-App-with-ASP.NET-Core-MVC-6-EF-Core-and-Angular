@@ -1,0 +1,14 @@
+﻿{
+  "MailSettings": {
+    "ToAddress": "cvasquez1425@hotmail.com"
+  },
+  "ConnectionStrings": {
+    "WorldContextConnection": "Server=cvasquez1425.database.windows.net;Initial Catalog=TheWorldDb;Persist Security Info=False;User ID=cvasquez1425;Password=Iam45yrsold;MultipleActiveResultSets=true;"                                      
+  },
+  "keys": {
+    "BingKey": "DONTEVERPUTKEYSINSOURCECONTROL"
+  }
+}
+//"WorldContextConnection": "Server=(localdb)\\MSSQLlocaldb;Database=TheWorldDb;Trusted_Connection=True;MultipleActiveResultSets=true;",
+
+//Server=:cvasquez1425.database.windows.net;Initial Catalog=TheWorldDb;Persist Security Info=False;User ID=cvasquez1425;Password=Iam45yrsold;MultipleActiveResultSets=False;

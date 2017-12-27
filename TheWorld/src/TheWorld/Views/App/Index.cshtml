@@ -1,0 +1,14 @@
+﻿@*a row is a container for making grid decisions inside of    
+By using these grids we can determine the layout without determining the pixel width, that is the magic of the grid that you never have to deal with the CSS width    
+*@
+
+@model IEnumerable<TheWorld.Models.Trip>
+<div class="row">
+
+   <div class="col-md-12">
+       <h1>Welcome to the World</h1>
+       <p>This app will allow you to plan for World trips</p>
+       <a asp-controller="App" asp-action="trips" class="btn btn-lg btn-success">View My Trips</a>
+   </div>
+
+</div>

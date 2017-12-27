@@ -1,0 +1,99 @@
+﻿@*<!DOCTYPE html>
+
+    <html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>@ViewBag.Title</title>
+    </head>
+    <body>
+        <div>
+            @RenderBody()
+        </div>
+    </body>
+    </html>*@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>The World - @ViewBag.Title</title>
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/lib/bootswatch/yeti/bootstrap.min.css" />
+    @*<link rel="stylesheet" href="~/lib/bootswatch/spacelab/bootstrap.min.css" />*@
+    <link rel="stylesheet" href="~/lib/Font-Awesome/css/font-awesome.min.css" />  @*and unlike Bootstrap, it doesn't require Javascript to run*@
+    <link rel="stylesheet" href="~/css/site.css" />
+
+</head>
+<body>
+    <div id="sidebar">
+        @if (User.Identity.IsAuthenticated)
+        {
+            <img src="~/img/user1.jpg" alt="headshot" class="headshot" />
+            <span id="username">@User.Identity.Name</span> <!--an span is an inline section of code, paragraph is always blocks of code. Spans are always smaller sections of code-->
+        }
+        <ul class="nav">
+            @*Tag helper, anything that starts with asp-  we call them attributes (i.e., asp-controller, asp-action ) is generating the HREF programmatically on the server*@
+            @*but we have to enable Tag Helper by adding a new dependency to the project.json Microsoft.AspNetCore.Mvc.TagHelpers*@
+            <li class="active"><a asp-controller="App" asp-action="Index">Home</a></li>
+            <li><a asp-controller="App" asp-action="About">About</a></li>
+            <li><a asp-controller="App" asp-action="Contact">Contact</a></li>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <li><a asp-controller="App" asp-action="Trips">My Trips</a></li>
+                <li><a asp-controller="Auth" asp-action="Logout">Logout</a></li>
+            }
+        </ul>
+    </div>
+
+    <div id="wrapper">
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <ul class="nav navbar-nav navbar-left">
+                    <li>
+                        <button id="sidebarToggle" class="btn btn-primary">
+                            <i class="fa fa-angle-left"></i>
+                        </button>
+                    </li>
+                </ul>
+                <a asp-controller="App" asp-action="Index" class="navbar-brand">The World</a>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" class="btn btn-sm btn-info">
+                            <i class="fa fa-save"></i>Save
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="btn btn-sm btn-info">
+                            <i class="fa fa-print"></i>Print
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <!--because they're divs, they go all the way from edge to edge on the page.-->
+        <div id="main">
+            @RenderBody()       @*this is the placeholder, this part of the page that I am going to inject here.*@
+        </div>
+        <div id="footer" class="container-fluid">
+            <div class="navbar navbar-inverse navbar-fixed-bottom">
+                <!--another section containing our footer-->
+                <h4 class="text-center text-info">&copy; 2015 The World Ltd.</h4>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <environment names="Development">
+        <script type="text/javascript" src="~/js/site.js"></script>
+    </environment>
+    <environment names="Production,Staging">
+        <script type="text/javascript" src="~/lib/_app/site.js"></script>
+    </environment>
+
+
+    @RenderSection("scripts", false)
+
+</body>
+</html>
